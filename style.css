@@ -13,6 +13,10 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1150px;
+}
+
 .hover-mylink {
   color: #14171f;
   font-size: 0.8rem;
@@ -44,7 +48,12 @@
 }
 
 .card {
+  transition: transform 200ms ease;
   border-radius: 4px !important;
+}
+.card:hover {
+  transform: translate(0, -2px) scale(1.1);
+  box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1), 0px 8px 8px -4px rgba(17, 24, 39, 0.04);
 }
 .card h5 {
   font-weight: 700;
@@ -67,9 +76,11 @@
   background-size: cover;
   width: 75%;
   aspect-ratio: 4/3;
+  left: 10%;
 }
-.about-us div {
-  width: 380px;
+.about-us + div {
+  right: 10%;
+  z-index: 5;
 }
 
 .services .card:nth-child(even) {
@@ -97,10 +108,10 @@
 }
 
 .active {
-  padding-left: 10px;
-  border-bottom: none;
-  padding-bottom: 0px;
-  border-left: 4px solid var(--primary);
+  padding-bottom: 10px;
+  border-left: none;
+  padding-left: 0px;
+  border-bottom: 4px solid var(--primary);
 }
 
 .inactive {
@@ -115,6 +126,33 @@
 form {
   max-width: 900px;
 }
+
+.experience .card {
+  box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1), 0px 8px 8px -4px rgba(17, 24, 39, 0.04);
+}
+.experience .card:not(:last-child):nth-child(even) {
+  left: -50px;
+}
+.experience .card:not(:last-child):nth-child(even) img {
+  top: -15%;
+  left: -10%;
+}
+.experience .card:nth-child(odd) {
+  right: -50px;
+  z-index: 5;
+}
+.experience .card:nth-child(odd) img {
+  top: -15%;
+  right: -10%;
+}
+.experience .card:last-child {
+  left: -50px;
+}
+.experience .card:last-child img {
+  bottom: -15%;
+  right: -10%;
+}
+
 .sm {
   font-size: 16px;
 }
@@ -177,6 +215,7 @@ form {
 
 .logo-text {
   font-size: 1.6rem;
+  font-weight: 700;
   color: var(--primary);
 }
 
@@ -185,6 +224,10 @@ form {
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.projects {
+  padding: 0px;
 }
 
 @media screen and (min-width: 768px) {
