@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-
 :root {
   --primary: #2947a9;
   --button-background: #292e3d;
   --lighter-text: #858ead;
+  --spacer-background:#e0e3eb;
+  --text-secondary-blue:#525B7A;
+  --text-secondary:#667299;
   --regular: 400;
   font-family: "Work Sans", sans-serif;
 }
@@ -15,58 +17,62 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-padding-top: 65px;
+}
 
 // mixins
-@mixin hover-card{
+@mixin hover-card {
+  cursor: pointer;
   transition: transform 200ms ease;
 
-  &:hover{
+  &:hover {
     transform: translate(0, -2px) scale(1.1);
     box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1),
-    0px 8px 8px -4px rgba(17, 24, 39, 0.04);
+      0px 8px 8px -4px rgba(17, 24, 39, 0.04);
   }
 }
 
-.container{
-  max-width: 1150px;
-}
 
+
+// utility classes
 .hover-mylink {
   color: #14171f;
   font-size: 0.8rem;
-}
 
-.-right-30 {
-  right: -30%;
-}
-
-.hover-mylink:hover {
-  color: #f9995d !important;
-}
-
-.hero-section {
-  background: url(/images/hero/hero.svg) no-repeat center;
-  background-size: cover;
-  height: 92vh;
-
-  h1 {
-    left: 5%;
-    bottom: 10%;
-    font-size: 2.2rem !important;
-  }
-
-  .navigation {
-    right: 0%;
-  }
-
-  .navigation-controls {
-    gap: 1px;
+  &:hover {
+    color: #f9995d !important;
   }
 }
+
+.rounded-card {
+  border-radius: 4px !important;
+}
+
+.rounded-card-2{
+  border-radius: 2px !important;
+}
+
+
+.container {
+  max-width: 1150px;
+}
+
+.reputation-section {
+  h2 {
+    text-shadow: 0px 4px 4px rgba($color: #000000, $alpha: 0.25);
+    -webkit-text-stroke: 2px #000;
+  }
+}
+
+.hover-card > .card,
+.hover-card > button,
+.hover-card > a {
+  @include hover-card();
+}
+
 
 .card {
-  @include hover-card();
-
   border-radius: 4px !important;
 
   h5 {
@@ -78,38 +84,75 @@
   }
 }
 
-.card-border {
+.card-text-border {
   border-left: 4px solid #f9995d;
 }
 
-.spacer {
-  width: 20%;
-  height: 2px;
+.active {
+  padding-bottom: 10px;
+  border-left: none;
+  padding-left: 0px;
+  border-bottom: 4px solid var(--primary);
 }
 
-.about-us {
-  background: url(/images/aboutus/aboutus_hero.svg) no-repeat center;
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.inactive {
+  padding-left: 10px;
+  padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+// hero section css
+.hero-section {
+  background: url(/images/hero/hero.svg) no-repeat center;
   background-size: cover;
-  width: 75%;
-  aspect-ratio: 4/3;
-  left: 10%;
-  
-  + div{
-    right: 10%;
-    z-index: 5;
+  height: 92vh;
+
+  h1 {
+    left: 5%;
+    bottom: 10%;
+    font-weight: 600 !important;
+    font-size: 2.5rem !important;
+  }
+
+  .navigation {
+    right: 0%;
+  }
+
+  .navigation-controls {
+    gap: 1px;
   }
 }
 
+
+
+
+// services css
 .services {
+  .spacer {
+    width: 20%;
+    height: 2px;
+    background-color: var(--spacer-background);
+  }
+
+  .card{
+    box-shadow: 0px 0px 37px -4px rgba(17, 24, 39, 0.05);
+  }
+
   .card:nth-child(even) {
     background-color: #2947a9;
 
     h6 {
       color: white;
-    }
-
-    .spacer {
-      background-color: white;
     }
   }
 
@@ -119,104 +162,156 @@
     h6 {
       color: var(--primary);
     }
+  }
+}
 
-    .spacer {
-      background-color: var(--primary);
+
+
+
+
+
+// consultation section
+.consultation {
+  background: url(/images/consultation/freeconsultation.svg) no-repeat center;
+  background-size: cover;
+  padding: 30px;
+  
+  div>button{
+    transition: all 200ms ease;
+    
+    :hover{
+      background-color: white;
     }
   }
 }
 
-.consultation {
-  background: url(/images/consultation/freeconsultation.svg) no-repeat center;
+
+
+
+//about us section
+.about-us {
+  background: url(/images/aboutus/aboutus_hero.svg) no-repeat center;
   background-size: cover;
+  width: 75%;
+  aspect-ratio: 4/3;
+  
+  + div {
+    z-index: 5;
+  }
 }
 
-.active {
-  padding-bottom: 10px;
-  border-left: none;
-  padding-left: 0px ;
-  border-bottom: 4px solid var(--primary);
+
+
+// experience section
+.experience {
+  .card {
+    width: 15rem;
+    box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1),
+    0px 8px 8px -4px rgba(17, 24, 39, 0.04);
+    
+    h6{
+      color: var(--button-background);
+    }
+    h5{
+      color: var(--text-secondary);
+    }
+  }
+  
+  .card:first-child {
+    top: 50px;
+    left: 15px;
+    z-index: 5;
+    
+    img {
+      top: -15%;
+      right: -10%;
+    }
+  }
+  
+  
+  .card:nth-child(2) {
+    top: 15px;
+    right: 15px;
+    
+    img {
+      top: -15%;
+      left: -10%;
+    }
+  }
+  .card:nth-child(3) {
+    bottom: 15px;
+    left: 15px;
+    z-index: 5;
+    img {
+      top: -15%;
+      right: -10%;
+    }
+  }
+  .card:nth-child(4) {
+    bottom: 50px;
+    right: 15px;
+    img {
+      bottom: -15%;
+      right: -10%;
+    }
+  }
+  
+  
+  
 }
 
-.inactive {
-  padding-left: 10px;
-  padding-bottom: 0px;
-}
 
-.project-wrapper>.card {
+
+// projectt section
+.project-wrapper > .card {
   width: 380px;
 }
 
+
+
+
+//contact section
 form {
   max-width: 900px;
 }
 
 
-.experience{
-
-  .card{
-    box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1),
-    0px 8px 8px -4px rgba(17, 24, 39, 0.04);
-  }
-
-  .card:not(:last-child):nth-child(even){
-    left: -50px;
-
-    img{
-      top: -15%;
-      left: -10%;
-    }
-  }
-
-  .card:nth-child(odd){
-    right: -50px;
-    z-index: 5;
-
-    img{
-      top: -15%;
-      right: -10%;
-    }
-  }
-
-  .card:last-child{
-    left: -50px;
-
-    img{
-      bottom: -15%;
-      right: -10%;
-    }
-  }
-
+// footer
+.social-icons img:hover{
+  filter: sepia(100%) hue-rotate(190deg) saturate(500%);
 }
+
 
 
 // global classes
 .sm {
-  font-size: 16px;
+  font-size: 11px;
 }
 
 .md {
-  font-size: 17px;
+  font-size: 12px;
 }
 
 .lg {
-  font-size: 18px;
+  font-size: 13px;
 }
 
 .xl {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .xl2 {
-  font-size: 28px;
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--button-background);
 }
 
 .xl3 {
-  font-size: 48px;
+  font-size: 40px;
 }
 
 .xl4 {
-  font-size: 64px;
+  font-size: 45px;
 }
 
 .bg-myprimary {
@@ -243,17 +338,16 @@ form {
   color: var(--primary) !important;
 }
 
-.font-lighter {
+.font-lighter-variant {
   color: var(--lighter-text) !important;
 }
 
-.font-lightblue {
-  color: #525b7a;
+.font-secondary-blue {
+  color: var(--text-secondary-blue);
 }
 
 .logo-text {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 700 !important;
   color: var(--primary);
 }
 
@@ -262,15 +356,13 @@ form {
   height: fit-content;
 }
 
-.projects {
-  padding: 0px;
-}
+
 
 
 @media screen and (min-width: 768px) {
   .hero-section {
     h1 {
-      font-size: 72px !important;
+      font-size: 70px !important;
     }
 
     .navigation {
@@ -278,7 +370,44 @@ form {
     }
   }
 
+  .newsletter-input{
+    width: 250px;
+  }
 
+  .experience {
+
+    .card{
+      width: 18rem;
+    }
+
+    .card:not(:last-child):nth-child(even) {
+      left: -50px;
+
+      img {
+        top: -15%;
+        left: -10%;
+      }
+    }
+
+    .card:nth-child(odd) {
+      right: -50px;
+      z-index: 5;
+
+      img {
+        top: -15%;
+        right: -10%;
+      }
+    }
+
+    .card:last-child {
+      left: -50px;
+
+      img {
+        bottom: -15%;
+        right: -10%;
+      }
+    }
+  }
 
   .active {
     padding-left: 10px;
@@ -292,31 +421,38 @@ form {
     padding-bottom: 0px;
   }
 
-  .about-us {
-    width: 100%;
-  }
-
   .md {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .lg {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .xl {
-    font-size: 24px;
+    font-size: 19px;
   }
 
   .xl2 {
-    font-size: 36px;
+    font-size: 31px;
+    font-weight: bold;
   }
 
   .xl3 {
-    font-size: 60px;
+    font-size: 55px;
   }
 
   .xl4 {
-    font-size: 72px;
+    font-size: 67px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .about-us {
+    left: 8%;
+
+    + div {
+      right: 5%;
+    }
   }
 }
