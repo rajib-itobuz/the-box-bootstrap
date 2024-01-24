@@ -4,9 +4,9 @@
   --primary: #2947a9;
   --button-background: #292e3d;
   --lighter-text: #858ead;
-  --spacer-background:#e0e3eb;
-  --text-secondary-blue:#525B7A;
-  --text-secondary:#667299;
+  --spacer-background: #e0e3eb;
+  --text-secondary-blue: #525b7a;
+  --text-secondary: #667299;
   --regular: 400;
   font-family: "Work Sans", sans-serif;
 }
@@ -17,11 +17,12 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-padding-top: 65px;
 }
 
-// mixins
+
+/*! mixins */
 @mixin hover-card {
   cursor: pointer;
   transition: transform 200ms ease;
@@ -34,8 +35,7 @@ html{
 }
 
 
-
-// utility classes
+/*! utility classes  */
 .hover-mylink {
   color: #14171f;
   font-size: 0.8rem;
@@ -49,10 +49,9 @@ html{
   border-radius: 4px !important;
 }
 
-.rounded-card-2{
+.rounded-card-2 {
   border-radius: 2px !important;
 }
-
 
 .container {
   max-width: 1150px;
@@ -70,7 +69,6 @@ html{
 .hover-card > a {
   @include hover-card();
 }
-
 
 .card {
   border-radius: 4px !important;
@@ -95,7 +93,7 @@ html{
   border-bottom: 4px solid var(--primary);
 }
 
-.circle{
+.circle {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -106,12 +104,7 @@ html{
 }
 
 
-
-
-
-
-
-// hero section css
+/*! hero section css */
 .hero-section {
   background: url(/images/hero/hero.svg) no-repeat center;
   background-size: cover;
@@ -125,7 +118,9 @@ html{
   }
 
   .navigation {
-    right: 0%;
+    width: 310px;
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .navigation-controls {
@@ -133,10 +128,7 @@ html{
   }
 }
 
-
-
-
-// services css
+/*! services section */
 .services {
   .spacer {
     width: 20%;
@@ -144,7 +136,7 @@ html{
     background-color: var(--spacer-background);
   }
 
-  .card{
+  .card {
     box-shadow: 0px 0px 37px -4px rgba(17, 24, 39, 0.05);
   }
 
@@ -165,125 +157,85 @@ html{
   }
 }
 
-
-
-
-
-
-// consultation section
+/*! consultation section */
 .consultation {
   background: url(/images/consultation/freeconsultation.svg) no-repeat center;
   background-size: cover;
   padding: 30px;
-  
-  div>button{
-    transition: all 200ms ease;
-    
-    :hover{
-      background-color: white;
-    }
+
+  div > button:hover {
+    background-color: white !important;
+    border: 2px solid white !important;
+    color: black !important;
   }
 }
 
-
-
-
-//about us section
+/*! about us section */
 .about-us {
   background: url(/images/aboutus/aboutus_hero.svg) no-repeat center;
   background-size: cover;
   width: 75%;
   aspect-ratio: 4/3;
-  
+
   + div {
     z-index: 5;
   }
 }
 
-
-
-// experience section
+/*! experience section */
 .experience {
   .card {
     width: 15rem;
     box-shadow: 0px 20px 24px -4px rgba(17, 24, 39, 0.1),
-    0px 8px 8px -4px rgba(17, 24, 39, 0.04);
-    
-    h6{
+      0px 8px 8px -4px rgba(17, 24, 39, 0.04);
+
+    h6 {
       color: var(--button-background);
     }
-    h5{
+    h5 {
       color: var(--text-secondary);
     }
   }
-  
-  .card:first-child {
-    top: 50px;
-    left: 15px;
-    z-index: 5;
-    
-    img {
-      top: -15%;
-      right: -10%;
-    }
+
+  .card:not(:last-child):nth-child(even) img {
+    top: -12%;
+    left: -10%;
   }
-  
-  
-  .card:nth-child(2) {
-    top: 15px;
-    right: 15px;
-    
-    img {
-      top: -15%;
-      left: -10%;
-    }
+
+  .card:nth-child(odd) img {
+    top: -15%;
+    right: -10%;
   }
-  .card:nth-child(3) {
-    bottom: 15px;
-    left: 15px;
-    z-index: 5;
-    img {
-      top: -15%;
-      right: -10%;
-    }
+  .card:last-child img {
+    bottom: -15%;
+    right: -10%;
   }
-  .card:nth-child(4) {
-    bottom: 50px;
-    right: 15px;
-    img {
-      bottom: -15%;
-      right: -10%;
-    }
-  }
-  
-  
-  
 }
 
-
-
-// projectt section
+/*! projectt section */
+.projects{
+  * > h3{
+    :hover{
+      color: red !important;
+      // color: #7b8dc4 !important;
+    }
+  }
+}
 .project-wrapper > .card {
   width: 380px;
 }
 
-
-
-
-//contact section
+/*! contact section */
 form {
   max-width: 900px;
 }
 
-
-// footer
-.social-icons img:hover{
+/*! footer section */
+.social-icons img:hover {
   filter: sepia(100%) hue-rotate(190deg) saturate(500%);
 }
 
-
-
-// global classes
+/*! global classes */
 .sm {
   font-size: 11px;
 }
@@ -357,8 +309,7 @@ form {
 }
 
 
-
-
+/*! 768px */
 @media screen and (min-width: 768px) {
   .hero-section {
     h1 {
@@ -367,17 +318,17 @@ form {
 
     .navigation {
       right: 5%;
+      transform: translateX(0%);
     }
   }
 
-  .newsletter-input{
+  .newsletter-input {
     width: 250px;
   }
 
   .experience {
-
-    .card{
-      width: 18rem;
+    .card {
+      width: 16rem;
     }
 
     .card:not(:last-child):nth-child(even) {
@@ -447,6 +398,8 @@ form {
   }
 }
 
+
+/*! 992px */
 @media screen and (min-width: 992px) {
   .about-us {
     left: 8%;
