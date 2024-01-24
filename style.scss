@@ -7,6 +7,7 @@
   --spacer-background: #e0e3eb;
   --text-secondary-blue: #525b7a;
   --text-secondary: #667299;
+  --button-orange:#f9995d
   --regular: 400;
   font-family: "Work Sans", sans-serif;
 }
@@ -21,7 +22,6 @@ html {
   scroll-padding-top: 65px;
 }
 
-
 /*! mixins */
 @mixin hover-card {
   cursor: pointer;
@@ -34,14 +34,13 @@ html {
   }
 }
 
-
 /*! utility classes  */
 .hover-mylink {
   color: #14171f;
   font-size: 0.8rem;
 
   &:hover {
-    color: #f9995d !important;
+    color: var(--button-orange) !important;
   }
 }
 
@@ -59,8 +58,8 @@ html {
 
 .reputation-section {
   h2 {
-    text-shadow: 0px 4px 4px rgba($color: #000000, $alpha: 0.25);
-    -webkit-text-stroke: 2px #000;
+    text-shadow: 0px 4px 4px rgba($color: black, $alpha: 0.25);
+    -webkit-text-stroke: 2px black;
   }
 }
 
@@ -83,7 +82,7 @@ html {
 }
 
 .card-text-border {
-  border-left: 4px solid #f9995d;
+  border-left: 4px solid var(--button-orange);
 }
 
 .active {
@@ -98,11 +97,11 @@ html {
   height: 10px;
   border-radius: 50%;
 }
+
 .inactive {
   padding-left: 10px;
   padding-bottom: 0px;
 }
-
 
 /*! hero section css */
 .hero-section {
@@ -141,7 +140,7 @@ html {
   }
 
   .card:nth-child(even) {
-    background-color: #2947a9;
+    background-color: var(--primary);
 
     h6 {
       color: white;
@@ -192,6 +191,7 @@ html {
     h6 {
       color: var(--button-background);
     }
+
     h5 {
       color: var(--text-secondary);
     }
@@ -206,6 +206,7 @@ html {
     top: -15%;
     right: -10%;
   }
+
   .card:last-child img {
     bottom: -15%;
     right: -10%;
@@ -213,14 +214,6 @@ html {
 }
 
 /*! projectt section */
-.projects{
-  * > h3{
-    :hover{
-      color: red !important;
-      // color: #7b8dc4 !important;
-    }
-  }
-}
 .project-wrapper > .card {
   width: 380px;
 }
@@ -279,7 +272,7 @@ form {
 }
 
 .bg-orange {
-  background-color: #f9995d;
+  background-color: var(--button-orange);
 }
 
 .font-mysecondary {
@@ -307,7 +300,6 @@ form {
   width: fit-content;
   height: fit-content;
 }
-
 
 /*! 768px */
 @media screen and (min-width: 768px) {
@@ -397,7 +389,6 @@ form {
     font-size: 67px;
   }
 }
-
 
 /*! 992px */
 @media screen and (min-width: 992px) {
