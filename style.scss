@@ -7,7 +7,7 @@
   --spacer-background: #e0e3eb;
   --text-secondary-blue: #525b7a;
   --text-secondary: #667299;
-  --button-orange:#f9995d
+  --button-orange: #f9995d;
   --regular: 400;
   font-family: "Work Sans", sans-serif;
 }
@@ -63,9 +63,9 @@ html {
   }
 }
 
-.hover-card > .card,
-.hover-card > button,
-.hover-card > a {
+.hover-card>.card,
+.hover-card>button,
+.hover-card>a {
   @include hover-card();
 }
 
@@ -111,7 +111,6 @@ html {
 
   h1 {
     left: 5%;
-    bottom: 10%;
     font-weight: 600 !important;
     font-size: 2.5rem !important;
   }
@@ -162,7 +161,7 @@ html {
   background-size: cover;
   padding: 30px;
 
-  div > button:hover {
+  div>button:hover {
     background-color: white !important;
     border: 2px solid white !important;
     color: black !important;
@@ -176,7 +175,7 @@ html {
   width: 75%;
   aspect-ratio: 4/3;
 
-  + div {
+  +div {
     z-index: 5;
   }
 }
@@ -214,7 +213,7 @@ html {
 }
 
 /*! projectt section */
-.project-wrapper > .card {
+.project-wrapper>.card {
   width: 380px;
 }
 
@@ -395,7 +394,7 @@ form {
   .about-us {
     left: 8%;
 
-    + div {
+    +div {
       right: 5%;
     }
   }
